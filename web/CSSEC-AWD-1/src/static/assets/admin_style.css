@@ -1,0 +1,570 @@
+/* 色卡：#1a4d2e #2b7a4b #3c9e6b #4dc38b #5ed7ab */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    font-weight: 400;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #2b7a4b;
+}
+
+a {
+    color: #f5f5f5;
+    text-decoration: none;
+}
+
+body {
+    background-color: #f5f5f5;
+    font-size: 16px;
+}
+
+/* flash 消息样式 */
+@keyframes slideInDown {
+    0% {
+        transform: translateX(-50%) translateY(-100%);
+    }
+    100% {
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+@keyframes slideOutUp {
+    0% {
+        transform: translateX(-50%) translateY(0);
+    }
+    100% {
+        transform: translateX(-50%) translateY(-180%);
+    }
+}
+
+.flash {
+    text-align: center;
+    position: fixed;
+    top: 1rem;
+    left: 50%;
+    width: 40vw;
+    transform: translateX(-50%) translateY(-100%);
+    z-index: 1000;
+    border-radius: 0.5rem;
+    animation: slideInDown 0.5s forwards, slideOutUp 0.5s 2s forwards;
+}
+
+.flash-message {
+    padding: 0.5rem;
+    background-color: #2b7a4b;
+    border: 2px solid #ff9900;
+    border-radius: 0.5rem;
+    color: #fff;
+    text-align: center;
+}
+
+/* 导航栏 */
+.admin-actions {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 10vw;
+    min-width: 100px;
+    background-color: #2b7a4b;
+    color: #f5f5f5;
+    overflow: auto;
+}
+
+.admin-actions-list {
+    list-style: none;
+}
+
+.admin-actions-item a {
+    display: block;
+    padding: 10px 0;
+    text-align: center;
+    line-height: 1;
+    border-bottom: 1px solid #3c9e6b;
+}
+
+.admin-logo {
+    background-color: #1a4d2e;
+    border: none;
+    color: #f5f5f5;
+}
+
+.admin-actions-item a:hover {
+    background-color: #3c9e6b;
+}
+
+.admin-info {
+    display: block;
+    padding: 10px 0;
+    text-align: center;
+    line-height: 1;
+}
+
+.admin-info a {
+    margin-left: 0.5rem;
+    font-size: 0.9rem;
+    color: #ff9900;
+}
+
+.admin-info a:hover {
+    text-decoration: underline;
+}
+
+.admin-actions footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.admin-actions footer a:hover {
+    text-decoration: underline;
+}
+
+.admin-actions-item.active a {
+    background-color: #3c9e6b;
+}
+
+/* 主体内容 */
+.container {
+    margin-left: 11vw;
+    margin-right: 1vw;
+    min-height: 100vh;
+    padding: 2rem;
+    background-color: #fff;
+}
+
+/* 后台默认页面 */
+.container h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #2b7a4b;
+    border-bottom: 2px solid #2b7a4b;
+}
+
+.admin-default h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.admin-default-home {
+    position: absolute;
+    right: 3rem;
+    display: block;
+    color: #2b7a4b;
+}
+
+.admin-default-home:hover {
+    color: #ff9900;
+}
+
+.admin-default-articles-count,
+.admin-default-users-count {
+    color: #3c9e6b;
+}
+
+.admin-default-notice {
+    margin-top: 1rem;
+    padding: 1rem;
+    border: 1px solid #3c9e6b;
+    border-radius: 5px;
+}
+
+.admin-default-notice h2 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.admin-default-notice p {
+    color: #333;
+    font-size: 1rem;
+}
+
+.admin-default-banners {
+    margin-top: 1rem;
+    border: 1px solid #3c9e6b;
+    border-radius: 5px;
+}
+
+.admin-default-banners h2 {
+    font-size: 1.2rem;
+    margin: 1rem;
+}
+
+.admin-default-banners ul {
+    list-style: none;
+}
+
+.admin-default-banners-item {
+    display: flex;
+    margin: 20px;
+    border-radius: 5px;
+    border: 1px solid #3c9e6b;
+}
+
+.admin-default-banners-item img {
+    width: 10rem;
+    height: 3rem;
+    object-fit: cover;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.admin-default-banners-item-text {
+    margin: 0.2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.admin-default-banners-item-text p {
+    font-size: 0.8rem;
+    color: #333;
+}
+
+/* 公告管理和公告发布页面 */
+.admin-notice-post form {
+    display: flex;
+    flex-direction: column;
+    font-size: 1rem;
+}
+
+.admin-notice-post label {
+    color: #333333;
+    margin-bottom: 0.2rem;
+}
+
+.admin-notice-post input[type="text"],
+.admin-notice-post textarea {
+    margin-bottom: 20px;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+}
+
+.admin-notice-post input {
+    width: 100%;
+    border-radius: 2px;
+}
+
+.admin-notice-post input:focus {
+    outline: none;
+    border: 1px solid #2b7a4b;
+}
+
+.admin-notice-post textarea {
+    resize: none;
+}
+
+.admin-notice-post textarea:focus {
+    outline: none;
+    border-radius: 2px;
+    border: 1px solid #2b7a4b;
+}
+
+.admin-notice-post input[type="submit"] {
+    font-size: 1rem;
+    color: #f5f5f5;
+    background-color: #2b7a4b;
+    border: 1px solid #ccc;
+    padding: 0.5rem;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+}
+
+.admin-notice-post input[type="submit"]:hover {
+    background-color: #3c9e6b;
+}
+
+.admin-notice-edit-clear input[type="submit"]:hover {
+    background-color: #ff9900;
+}
+
+/* 展板发布页面 */
+.admin-banners-post input {
+    width: 100%;
+    border-radius: 2px;
+    border: 1px solid #ccc;
+}
+
+.admin-banners-post label {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.admin-banners-post input[type="text"]:focus,
+.admin-banners-post textarea:focus {
+    outline: none;
+    border: 1px solid #2b7a4b;
+    font-size: 1rem;
+}
+
+.admin-banners-post input[type="text"],
+.admin-banners-post textarea {
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    font-size: 1rem;
+}
+
+.admin-banners-post input[type="submit"] {
+    background-color: #2b7a4b;
+    color: #f5f5f5;
+    border: none;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.admin-banners-post input[type="submit"]:hover {
+    background-color: #3c9e6b;
+}
+
+.admin-banners-post input[type="file"] {
+    display: none;
+}
+
+.admin-banners-post-title {
+    margin-top: 1.5rem;
+    display: inline-block;
+    width: 70%;
+    height: 6rem;
+}
+
+#preview {
+    display: inline-block;
+    position: absolute;
+    right: 3rem;
+    width: 20vw;
+    padding: 1.5rem 0;
+    border: 1px solid #2b7a4b;
+    height: 6rem;
+    text-align: center;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    line-height: 3rem;
+    font-size: 1rem;
+    border-radius: 5px;
+    background-color: #2b7a4b;
+    color: #f5f5f5;
+}
+
+.admin-banners-post-content textarea {
+    width: 100%;
+    height: 6rem;
+    border: 1px solid #ccc;
+    resize: none;
+    border-radius: 5px;
+}
+
+/* 展板管理页面 */
+#banner img {
+    width: 100%;
+    height: 35vh;
+    object-fit: cover;
+}
+
+.banner h2 {
+    font-size: 1.5rem;
+    color: #f5f5f5;
+}
+
+.banner small {
+    color: #f5f5f5;
+    margin-top: 0.5rem;
+}
+
+.admin-banners-edit-banners-item {
+    display: flex;
+    margin-top: 1rem;
+    border-radius: 5px;
+    border: 1px solid #3c9e6b;
+}
+
+/* 展板图片 */
+.admin-banners-edit-banners-item img {
+    width: 16rem;
+    height: 5rem;
+    margin-right: 1rem;
+    object-fit: cover;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border: 1px solid #3c9e6b;
+}
+
+/* 展板内容 */
+.admin-banners-edit-banners-item-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+    padding: 0.5rem;
+}
+
+/* 展板内容标题行 */
+.admin-banners-edit-banners-item-text-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* 展板内容标题行按钮 */
+.admin-banners-edit-banners-item-text-header input[type="submit"],
+.admin-banners-edit-banners-item-text-header a {
+    display: inline-block;
+    background-color: #fff;
+    border: none;
+    color: #1a4d2e;
+    margin-right: 0.3rem;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.admin-banners-edit-banners-item-text-header input[type="submit"]:hover,
+.admin-banners-edit-banners-item-text-header a:hover {
+    color: #ff9900;
+}
+
+.admin-banners-edit-banners-item-text p {
+    font-size: 0.8rem;
+    color: #666;
+}
+
+/* 文章发布页面 */
+.admin-articles-post form {
+    display: flex;
+    flex-direction: column;
+}
+
+.admin-articles-post label {
+    display: block;
+    margin: 1rem 0;
+}
+
+.admin-articles-post input {
+    border: 1px solid #ccc;
+}
+
+.admin-articles-post input[type="text"],
+.admin-articles-post textarea {
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 0.5rem;
+}
+
+.admin-articles-post input[type="text"]:focus,
+.admin-articles-post textarea:focus {
+    outline: none;
+    border: 1px solid #2b7a4b;
+}
+
+.admin-articles-post input[type="submit"] {
+    margin-top: 1rem;
+    padding: 0.5rem;
+    width: 100%;
+    background-color: #2b7a4b;
+    color: #f5f5f5;
+    font-size: 1rem;
+    border-radius: 5px;
+}
+
+.admin-articles-post input[type="submit"]:hover {
+    background-color: #3c9e6b;
+}
+
+.admin-articles-post textarea {
+    min-height: 30vh;
+    resize: vertical;
+}
+
+/* 文章管理页面 */
+.article-list {
+    list-style: none;
+}
+
+.article-item {
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    background-color: #fff;
+    border: 1px solid #1a4d2e;
+    border-radius: 5px;
+}
+
+.article-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.article-actions input[type="submit"], .article-actions a {
+    display: inline-block;
+    background-color: #fff;
+    border: none;
+    color: #1a4d2e;
+    margin-right: 0.3rem;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.article-actions input[type="submit"]:hover, .article-actions a:hover {
+    color: #ff9900;
+}
+
+.article-item p {
+    margin: 0.5rem 0;
+    color: #333;
+}
+
+.article-meta {
+    color: #666;
+}
+
+.article-meta span + span {
+    margin-left: 1rem;
+}
+
+/* 用户管理页面 */
+.admin-users-edit table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #ddd;
+}
+
+.admin-users-edit th,
+.admin-users-edit td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.admin-users-edit td form {
+    display: inline;
+}
+
+.admin-users-edit td form input[type="submit"] {
+    border: none;
+    color: #1a4d2e;
+    cursor: pointer;
+    background-color: #fff;
+    font-size: 1rem;
+    margin-right: 1rem;
+}
+
+/* 下拉列表 */
+.admin-users-edit select {
+    padding: 0.2rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.admin-users-edit td form input[type="submit"]:hover,
+.admin-users-edit td form input[type="submit"]:focus {
+    color: #ff9900;
+}
